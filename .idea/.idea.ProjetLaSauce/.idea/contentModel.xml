@@ -1,8 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\projets unity\ProjetLaSauce" t="IncludeFlat">
+    <e p="C:\projets unity\ProjetLaSauce" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Scripts" t="Include">
+          <e p="Components" t="Include">
+            <e p="MoveHorizontallyComponent.cs" t="Include" />
+            <e p="MoveVerticallyComponent.cs" t="Include" />
+          </e>
+          <e p="Entity.cs" t="Include" />
+          <e p="GameManager.cs" t="Include" />
+          <e p="GenericComponant.cs" t="Include" />
+          <e p="MyUpdater.cs" t="Include" />
+          <e p="ObjectListToPool.cs" t="Include" />
+          <e p="PoolManager.cs" t="Include" />
+          <e p="PoolManagerScriptTest.cs" t="Include" />
+          <e p="TAccessor.cs" t="Include" />
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
       <e p="ProjetLaSauce.sln" t="IncludeFlat" />
+      <e p="Temp\Bin" t="ExcludeRecursive" />
     </e>
     <e p="C:\Users\berthelot Mickael\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
     <e p="C:\Users\berthelot Mickael\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_ProjetLaSauce.1545932233.00" t="ExcludeRecursive" />
