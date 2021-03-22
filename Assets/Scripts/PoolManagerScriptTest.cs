@@ -43,16 +43,20 @@ public class PoolManagerScriptTest : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.A))
         {
-            PoolManager poolManager = PoolManager.Instance();
-            Entity obj = poolManager.GetPooledObject(ObjectType.Ennemy);
-            _objects.Add(obj);
+            AddEntityToList(ObjectType.Ennemy);
         }
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            PoolManager poolManager = PoolManager.Instance();
-            Entity obj = poolManager.GetPooledObject(ObjectType.Bullet);
-            _objects.Add(obj);
+            AddEntityToList(ObjectType.Bullet);
         }
+    }
+
+    private void AddEntityToList(ObjectType preObjectType)
+    {
+        PoolManager poolManager = PoolManager.Instance();
+        Entity obj = poolManager.GetPooledObject(preObjectType);
+        obj.Init();
+        _objects.Add(obj);
     }
 }

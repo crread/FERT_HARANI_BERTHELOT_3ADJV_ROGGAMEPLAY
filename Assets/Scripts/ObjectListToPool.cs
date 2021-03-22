@@ -16,7 +16,7 @@ public class ObjectListToPool
         _objectInPool = new List<Entity>();
         for (int i = 0; i < parNumber; ++i)
         {
-            Entity newEntityInstance = MonoBehaviour.Instantiate(parPrefabObject);
+            Entity newEntityInstance = Object.Instantiate(parPrefabObject);
             newEntityInstance.DeInit();
             _objectInPool.Add(newEntityInstance);
         }
@@ -33,7 +33,6 @@ public class ObjectListToPool
                 return _objectInPool[i];
             }
         }
-        
         return null;
     }
 }

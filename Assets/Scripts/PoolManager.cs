@@ -1,13 +1,14 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [Serializable]
 public struct TypeObjectToPool
 {
-    public ObjectType ObjectType;
-    public Entity Prefab;
-    public int Number;
+    public ObjectType objectType;
+    public Entity prefab;
+    public int number;
 }
 
 public class PoolManager : MonoBehaviour
@@ -29,8 +30,8 @@ public class PoolManager : MonoBehaviour
         foreach (TypeObjectToPool obj in objectPrefab)
         {
             ObjectListToPool newObjectListToPool = new ObjectListToPool();
-            newObjectListToPool.Initialize(obj.Prefab, obj.Number);
-            pools.Add(obj.ObjectType, newObjectListToPool);
+            newObjectListToPool.Initialize(obj.prefab, obj.number);
+            pools.Add(obj.objectType, newObjectListToPool);
         }
     }
 
