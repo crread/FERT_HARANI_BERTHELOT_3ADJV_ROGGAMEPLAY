@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 [Serializable]
 public struct TypeObjectToPool
@@ -15,8 +14,8 @@ public class PoolManager : MonoBehaviour
 {
     public static PoolManager Instance() { return _singleton; }
     private static PoolManager _singleton;
+    private Dictionary<ObjectType, ObjectListToPool> pools;
     public List<TypeObjectToPool> objectPrefab;
-    public Dictionary<ObjectType, ObjectListToPool> pools;
 
     private void Awake()
     {

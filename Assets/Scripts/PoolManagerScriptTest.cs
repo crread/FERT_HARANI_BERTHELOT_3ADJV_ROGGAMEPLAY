@@ -4,10 +4,11 @@ using UnityEngine;
 public class PoolManagerScriptTest : MonoBehaviour
 {
     private List<Entity> _objects;
-    
+
     void Start()
     {
         _objects = new List<Entity>();
+
         PoolManager poolManager = PoolManager.Instance();
 
         for (int i = 0; i < 10; ++i)
