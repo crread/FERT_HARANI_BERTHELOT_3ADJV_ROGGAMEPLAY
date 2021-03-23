@@ -1,9 +1,7 @@
 using UnityEngine;
 
 public class MoveHorizontallyComponent : GenericComponent
-{ //Module HMov
-    public override void Move(Vector3 vector3)
-    {
-        
-    }
+{
+    public Vector3 direction = Vector3.right;
+    public float speed = 2.5f;
 }

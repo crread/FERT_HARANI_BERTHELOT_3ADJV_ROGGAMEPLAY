@@ -1,32 +1,30 @@
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
+using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     private PoolManager _poolmanager;
-    private MyUpdater myUpdater;
-    private List<GenericComponent> _listTest = new List<GenericComponent>();
-    void Start()
-    {
-        myUpdater = gameObject.AddComponent<MyUpdater>();
-        
-        for (int i = 0; i < 10; i++)
-        {
-            _listTest.Add(new MoveHorizontallyComponent());
-            _listTest.Add(new MoveVerticallyComponent());
-        }
+    private TAccessor _taccessor;
 
-        myUpdater.SystemUpdate(_listTest);
+    private void Start()
+    {
+        _taccessor = gameObject.GetComponent<TAccessor>();
+
+        _poolmanager = gameObject.GetComponent<PoolManager>();
+        _poolmanager.Initialize();
         
-        // _poolmanager = gameObject.GetComponent<PoolManager>();
-        // _poolmanager.Initialize();
-        // GameObject go = _poolmanager.GetPooledObject(ObjectType.Ennemy).gameObject;
-        
+        Entity entity = _poolmanager.GetPooledObject(ObjectType.Ennemy);
+        Component[] modules = entity.GetComponents(typeof(GenericComponent));
+
+        if (modules.Length > 0)
+        {
+            _taccessor.AddModules(modules);
+            entity.Init();
+        }
     }
     
-    void Update()
+    private void Update()
     {
-        
+        _taccessor.UpdateSystemUpdate();
     }
 }
