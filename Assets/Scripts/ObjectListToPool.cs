@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//pool
 public enum ObjectType
 {
     Player,

@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PoolManagerScriptTest : MonoBehaviour
 {
+    //TEST
     private List<Entity> _objects;
 
     void Start()

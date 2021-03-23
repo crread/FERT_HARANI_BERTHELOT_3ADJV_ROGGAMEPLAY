@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-
+//pool manager
 [Serializable]
 public struct TypeObjectToPool
 {
@@ -23,7 +23,7 @@ public class PoolManager : MonoBehaviour
         Initialize();
     }
 
-    private void Initialize()
+    internal void Initialize()
     {
         pools = new Dictionary<ObjectType, ObjectListToPool>();
         foreach (TypeObjectToPool obj in objectPrefab)
