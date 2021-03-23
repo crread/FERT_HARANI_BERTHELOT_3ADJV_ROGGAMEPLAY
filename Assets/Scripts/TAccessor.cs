@@ -1,43 +1,18 @@
-using System;
-using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
-public class TAccessor :MonoBehaviour
+public class TAccessor<T>
 {
-    private Dictionary<string, List<GenericComponent>> _dicoUpdater = new Dictionary<string, List<GenericComponent>>();
-    private Dictionary<string, IUpdater> _systemUpdater = new Dictionary<string, IUpdater>();
-    public static TAccessor Instance() { return _singleton; }
-    private static TAccessor _singleton;
-
-    private void Awake()
+    private static TAccessor<T> _singleton;
+    public static TAccessor<T> Instance()
     {
-        _singleton = this;
-    }
-
-    public void UpdateSystemUpdate()
-    {
-        foreach (var dicoData in _dicoUpdater)
+        if (_singleton == null)
         {
-            if (_systemUpdater.ContainsKey(dicoData.Key))
-            {
-                _systemUpdater[dicoData.Key].Test(dicoData.Value);
-            }
-            else
-            {
-                Debug.Log($"{dicoData.Key} is not available in system updater list");
-            }
+            _singleton = new TAccessor<T>();
         }
+        return _singleton;
     }
-    public void AddModules(Component[] genericComponentlist)
-    {
-        foreach (var component in genericComponentlist)
-        {
-            if (!_dicoUpdater.ContainsKey(component.GetType().Name))
-            {
-                _dicoUpdater.Add(component.GetType().Name, new List<GenericComponent>());
-                _systemUpdater.Add(component.GetType().Name, (IUpdater) Activator.CreateInstance(Type.GetType($"SystemUpdate{component.GetType().Name}")));
-            }
-            _dicoUpdater[component.GetType().Name].Add((GenericComponent)component);
-        }
-    }
+    public TAccessor() {}
+
+    public IEnumerable GetAllModules() => Object.FindObjectsOfType(typeof(T));
 }

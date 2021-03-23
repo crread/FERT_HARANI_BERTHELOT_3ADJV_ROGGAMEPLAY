@@ -1,10 +1,14 @@
-using System.Collections.Generic;
-using UnityEngine;
+using Components;using UnityEngine;
 
-public class SystemUpdate : MonoBehaviour, IUpdater
+public class SystemUpdateMoveVerticallyComponent : IUpdater
 {
-    public void Test(List<GenericComponent> modules)
+    public void SystemUpdate()
     {
-        Debug.Log("test");
+        TAccessor<MoveVerticallyComponent> accessor = TAccessor<MoveVerticallyComponent>.Instance();
+        
+        foreach (MoveVerticallyComponent module in accessor.GetAllModules())
+        {
+            module.gameObject.transform.position += (module.speed * Time.deltaTime) * module.direction;
+        }
     }
 }

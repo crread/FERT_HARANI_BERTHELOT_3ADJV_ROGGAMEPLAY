@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public interface IUpdater
 {
-    void Test(List<GenericComponent> dicoDataValue);
+    public void SystemUpdate();
 }

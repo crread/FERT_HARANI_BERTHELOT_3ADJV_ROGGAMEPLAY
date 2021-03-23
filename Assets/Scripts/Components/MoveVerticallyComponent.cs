@@ -1,5 +1,10 @@
 using UnityEngine;
 
-public class MoveVerticallyComponent : GenericComponent
+namespace Components
 {
+    public class MoveVerticallyComponent : GenericComponent
+    {
+        public Vector3 direction = Vector3.forward;
+        public float speed = 1f;
+    }
 }

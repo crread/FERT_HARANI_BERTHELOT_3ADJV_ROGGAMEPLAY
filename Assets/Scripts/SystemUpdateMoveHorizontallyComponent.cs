@@ -1,14 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using Components;
 using UnityEngine;
 
-public class SystemUpdateMoveHorizontallyComponent : MonoBehaviour, IUpdater
+public class SystemUpdateMoveHorizontallyComponent : IUpdater
 {
-    public void Test(List<GenericComponent> modules)
+    public void SystemUpdate()
     {
-        foreach (GenericComponent module in modules)
+        TAccessor<MoveHorizontallyComponent> accessor = TAccessor<MoveHorizontallyComponent>.Instance();
+        
+        foreach (MoveHorizontallyComponent module in accessor.GetAllModules())
         {
-            Debug.Log(module);
-            // module.gameObject.transform.position = module.direction * module.speed;
+            module.gameObject.transform.position += (module.speed * Time.deltaTime) * module.direction;
         }
     }
 }

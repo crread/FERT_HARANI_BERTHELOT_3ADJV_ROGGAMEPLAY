@@ -359,7 +359,7 @@ MonoBehaviour:
   objectPrefab:
   - objectType: 1
     prefab: {fileID: 574453925793065573, guid: f8863a064e281364489d7343612d6a0b, type: 3}
-    number: 5
+    number: 25
 --- !u!114 &2070710544
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,30 +1,36 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     private PoolManager _poolmanager;
-    private TAccessor _taccessor;
+    private List<IUpdater> _listTest = new List<IUpdater>();
 
     private void Start()
     {
-        _taccessor = gameObject.GetComponent<TAccessor>();
-
         _poolmanager = gameObject.GetComponent<PoolManager>();
         _poolmanager.Initialize();
         
+        _listTest.Add(new SystemUpdateMoveHorizontallyComponent());
+        _listTest.Add(new SystemUpdateMoveVerticallyComponent());
+        
         Entity entity = _poolmanager.GetPooledObject(ObjectType.Ennemy);
-        Component[] modules = entity.GetComponents(typeof(GenericComponent));
+        entity.Init();
 
-        if (modules.Length > 0)
-        {
-            _taccessor.AddModules(modules);
-            entity.Init();
-        }
     }
     
     private void Update()
     {
-        _taccessor.UpdateSystemUpdate();
+        foreach (var system in _listTest)
+        {
+            system.SystemUpdate();
+        }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            Entity entity = _poolmanager.GetPooledObject(ObjectType.Ennemy);
+            entity.Init();
+        }
     }
 }
