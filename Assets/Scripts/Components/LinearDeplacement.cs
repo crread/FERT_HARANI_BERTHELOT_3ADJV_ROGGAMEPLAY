@@ -1,7 +1,11 @@
 using UnityEngine;
 
-public class LinearDeplacement : GenericComponent
-{ //Module HMov
-    private float speed = 1;
-    private Vector3 vector = new Vector3(0,1,0);
+namespace Components
+{
+    public class LinearDeplacement : GenericComponent
+    {
+        //Module HMov
+        public float speed = 1f;
+        public Vector3 direction = new Vector3(0, 1, 0);
+    }
 }
