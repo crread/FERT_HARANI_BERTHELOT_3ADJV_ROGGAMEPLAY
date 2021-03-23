@@ -16,10 +16,13 @@
           <e p="Entity.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
           <e p="GenericComponant.cs" t="Include" />
+          <e p="IUpdater.cs" t="Include" />
           <e p="MyUpdater.cs" t="Include" />
           <e p="ObjectListToPool.cs" t="Include" />
           <e p="PoolManager.cs" t="Include" />
           <e p="PoolManagerScriptTest.cs" t="Include" />
+          <e p="SystemUpdateMoveHorizontallyComponent.cs" t="Include" />
+          <e p="SystemUpdateMoveVerticallyComponent.cs" t="Include" />
           <e p="TAccessor.cs" t="Include" />
         </e>
       </e>

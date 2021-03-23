@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-//pool manager
 [Serializable]
 public struct TypeObjectToPool
 {
