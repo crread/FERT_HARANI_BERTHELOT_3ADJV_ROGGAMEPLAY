@@ -8,12 +8,10 @@
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
           <e p="Components" t="Include">
-            <e p="MoveHorizontallyComponent.cs" t="Include" />
+            <e p="Dammage.cs" t="Include" />
+            <e p="Life.cs" t="Include" />
+            <e p="LinearDeplacement.cs" t="Include" />
             <e p="MoveSinus.cs" t="Include" />
-            <e p="MoveVerticallyComponent.cs" t="Include" />
-            <e p="ShotCross.cs" t="Include" />
-            <e p="ShotDiago.cs" t="Include" />
-            <e p="ShotVertical.cs" t="Include" />
           </e>
           <e p="Entity.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
