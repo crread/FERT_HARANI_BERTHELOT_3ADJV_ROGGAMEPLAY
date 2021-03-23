@@ -10,36 +10,48 @@ public class SystemUpdateMoveLinearComponent : IUpdater
         {
             if (module.gameObject.CompareTag("Player"))
             {
-                Plane playerPlane = new Plane(Vector3.up, module.gameObject.transform.position);
-                Ray ray = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
-                float hitDist = 0.0f;
-
-                if (playerPlane.Raycast(ray, out hitDist))
-                {
-                    Vector3 targetPoint = ray.GetPoint(hitDist);
-                    Quaternion targetRotation = Quaternion.LookRotation(targetPoint - module.gameObject.transform.position);
-                    targetRotation.x = 0;
-                    targetRotation.z = 0;
-                    module.gameObject.transform.rotation=Quaternion.Slerp(module.gameObject.transform.rotation, targetRotation, 7f * Time.deltaTime);
-                }
-                
-                if (Input.GetKey(KeyCode.Q))
-                {
-                    module.gameObject.transform.Translate((module.speed * Time.deltaTime) * module.left);        
-                }
-                if (Input.GetKey(KeyCode.D))
-                {
-                    module.gameObject.transform.position += (module.speed * Time.deltaTime) * module.right;
-                }
-                if (Input.GetKey(KeyCode.Z))
-                {
-                    module.gameObject.transform.position += (module.speed * Time.deltaTime) * module.forward;
-                }
-                if (Input.GetKey(KeyCode.S))
-                {
-                    module.gameObject.transform.position += (module.speed * Time.deltaTime) * module.back;
-                }
+                PlayerMouvements(module);
             }
+            else
+            {
+                module.gameObject.transform.Translate(module.speed * Time.deltaTime * module.left);
+                module.gameObject.transform.Translate(module.speed * Time.deltaTime * module.right);
+                module.gameObject.transform.Translate(module.speed * Time.deltaTime * module.forward);
+                module.gameObject.transform.Translate(module.speed * Time.deltaTime * module.back);
+            }
+        }
+    }
+
+    private void PlayerMouvements(LinearDeplacement module)
+    {
+        Plane playerPlane = new Plane(Vector3.up, module.gameObject.transform.position);
+        Ray ray = UnityEngine.Camera.main.ScreenPointToRay(Input.mousePosition);
+        float hitDist = 0.0f;
+
+        if (playerPlane.Raycast(ray, out hitDist))
+        {
+            Vector3 targetPoint = ray.GetPoint(hitDist);
+            Quaternion targetRotation = Quaternion.LookRotation(targetPoint - module.gameObject.transform.position);
+            targetRotation.x = 0;
+            targetRotation.z = 0;
+            module.gameObject.transform.rotation=Quaternion.Slerp(module.gameObject.transform.rotation, targetRotation, 7f * Time.deltaTime);
+        }
+                
+        if (Input.GetKey(KeyCode.Q))
+        {
+            module.gameObject.transform.Translate(module.speed * Time.deltaTime * module.left);        
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            module.gameObject.transform.Translate(module.speed * Time.deltaTime * module.right);
+        }
+        if (Input.GetKey(KeyCode.Z))
+        {
+            module.gameObject.transform.Translate(module.speed * Time.deltaTime * module.forward);
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            module.gameObject.transform.Translate(module.speed * Time.deltaTime * module.back);
         }
     }
 }

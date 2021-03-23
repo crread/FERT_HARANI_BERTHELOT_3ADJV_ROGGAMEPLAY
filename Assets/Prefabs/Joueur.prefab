@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b821135677b64bb4aadec79370daebdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2.5
+  speed: 5
   forward: {x: 0, y: 0, z: 1}
   back: {x: 0, y: 0, z: -1}
   right: {x: 1, y: 0, z: 0}

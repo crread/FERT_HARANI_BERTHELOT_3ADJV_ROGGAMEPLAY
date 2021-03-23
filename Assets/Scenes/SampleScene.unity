@@ -292,13 +292,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.6413623, y: -0, z: -0, w: 0.76723826}
-  m_LocalPosition: {x: 1.2, y: 28, z: -29.4}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 30, z: 4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 29.261, y: -9.559, z: -4.706}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &2070710540
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,6 +310,7 @@ GameObject:
   - component: {fileID: 2070710541}
   - component: {fileID: 2070710542}
   - component: {fileID: 2070710543}
+  - component: {fileID: 2070710544}
   m_Layer: 0
   m_Name: Script
   m_TagString: Untagged
@@ -343,9 +344,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2abd4563487acd845929b73b99941b7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoDrop: {fileID: 0}
   position: {x: 0, y: 0, z: 0}
-  playerp: {fileID: 0}
+  camera: {fileID: 0}
 --- !u!114 &2070710543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,3 +368,16 @@ MonoBehaviour:
   - objectType: 2
     prefab: {fileID: -6933222578830049422, guid: 6ba791023b05ec14badfca62f5229717, type: 3}
     number: 615
+--- !u!114 &2070710544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070710540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23960fc17d23c564a9c15db3c69d68ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectPrefab: []

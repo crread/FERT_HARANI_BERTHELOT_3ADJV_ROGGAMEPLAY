@@ -9,8 +9,6 @@
           <e p="Components" t="Include">
             <e p="Dammage.cs" t="Include" />
             <e p="LinearDeplacement.cs" t="Include" />
-            <e p="MoveHorizontallyComponent.cs" t="Include" />
-            <e p="MoveVerticallyComponent.cs" t="Include" />
           </e>
           <e p="Entity.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
@@ -18,10 +16,7 @@
           <e p="IUpdater.cs" t="Include" />
           <e p="ObjectListToPool.cs" t="Include" />
           <e p="PoolManager.cs" t="Include" />
-          <e p="PoolManagerScriptTest.cs" t="Include" />
-          <e p="SystemUpdateMoveHorizontallyComponent.cs" t="Include" />
           <e p="SystemUpdateMoveLinearComponent.cs" t="Include" />
-          <e p="SystemUpdateMoveVerticallyComponent.cs" t="Include" />
           <e p="TAccessor.cs" t="Include" />
         </e>
       </e>

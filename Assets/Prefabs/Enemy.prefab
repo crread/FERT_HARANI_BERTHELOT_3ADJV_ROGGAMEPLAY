@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 225564904822161728}
   - component: {fileID: 961770263601642942}
   - component: {fileID: 8681420204858091208}
-  - component: {fileID: 7740004472887684075}
+  - component: {fileID: 188154498830874171}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -110,7 +110,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7740004472887684075
+--- !u!114 &188154498830874171
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,15 +119,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3287743355462668417}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55d986b841ae94745b11f7a24199ef62, type: 3}
+  m_Script: {fileID: 11500000, guid: d9cc2cd7fca97bc4898d386526c13a78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 60
-  pointsToGive: 10
-  player: {fileID: 0}
-  waitTime: 0
-  bullet: {fileID: 6765739802155243591, guid: 6ba791023b05ec14badfca62f5229717, type: 3}
-  bulletSpawnPoint: {fileID: 6467865036004217368}
 --- !u!1001 &3841671992770829201
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -192,10 +186,5 @@ PrefabInstance:
 --- !u!4 &3685335157440025198 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 465186456161520127, guid: a1db75d0fb8a89a4a83a5bdd6b205327, type: 3}
-  m_PrefabInstance: {fileID: 3841671992770829201}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &6467865036004217368 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7823355813893720457, guid: a1db75d0fb8a89a4a83a5bdd6b205327, type: 3}
   m_PrefabInstance: {fileID: 3841671992770829201}
   m_PrefabAsset: {fileID: 0}

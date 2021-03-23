@@ -1,43 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Components;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public Vector3 position;
+    public Camera camera;
     private PoolManager _poolmanager;
     private List<IUpdater> _listTest = new List<IUpdater>();
-    public Vector3 position;
-
+    private GameObject _player;
+    private List<Entity> objects = new List<Entity>();
     private void Start()
     {
-        _poolmanager = gameObject.GetComponent<PoolManager>();
-        _poolmanager.Initialize();
-        
-        _listTest.Add(new SystemUpdateMoveLinearComponent());
-       
-        
-        Entity entity = _poolmanager.GetPooledObject(ObjectType.Ennemy);
-        entity.Init();
-        Entity entityp = _poolmanager.GetPooledObject(ObjectType.Player);
-        Debug.Log(entityp);
-        entityp.Init();
-    }
-    
-    //  IEnumerator ExampleCoroutine()
-    // {
-    //     yield return new WaitForSeconds(UnityEngine.Random.Range(1f,4f));
-    // }
+        _poolmanager = PoolManager.Instance();
 
-    
+        _listTest.Add(new SystemUpdateMoveLinearComponent());
+        
+        Entity playerEntity = _poolmanager.GetPooledObject(ObjectType.Player);
+        _player = playerEntity.gameObject;
+        playerEntity.Init();
+        objects.Add(playerEntity);
+    }
+
     private void Update()
     {
         foreach (var system in _listTest)
         {
             system.SystemUpdate();
         }
-        
-        
-       
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Entity bullet = _poolmanager.GetPooledObject(ObjectType.Bullet);
+            var gameObject = bullet.gameObject;
+            gameObject.transform.rotation = _player.transform.rotation;
+            gameObject.transform.position = _player.transform.position;
+            bullet.Init();
+            objects.Add(bullet);
+        }
+
         if (Input.GetKeyDown(KeyCode.A))
         {
             Entity entity = _poolmanager.GetPooledObject(ObjectType.Ennemy);
@@ -45,8 +48,12 @@ public class GameManager : MonoBehaviour
             {
                 entity.Init();
             }
+            else
+            {
+                Debug.Log("no more ennemy available");
+            }
  
-            position = new Vector3(UnityEngine.Random.Range(-25.0F, 25.0F), 0, UnityEngine.Random.Range(4.0F, 10.0F));
+            position = new Vector3(Random.Range(-25.0F, 25.0F), 0, Random.Range(4.0F, 10.0F));
             entity.gameObject.transform.position = position;
         }
     }
