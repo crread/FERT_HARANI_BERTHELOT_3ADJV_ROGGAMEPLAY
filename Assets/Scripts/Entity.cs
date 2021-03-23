@@ -1,15 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    //Poolable object
-    void Start()
-    {
-        
-    }
-
     public bool IsActive()
     {
         return gameObject.activeInHierarchy;

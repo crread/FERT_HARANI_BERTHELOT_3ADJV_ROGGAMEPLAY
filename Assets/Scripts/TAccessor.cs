@@ -2,9 +2,11 @@ using System.Collections.Generic;
 
 public class TAccessor <T>
 {
-    //Acessor
     private List<T> _listModules;
-    
+    public TAccessor()
+    {
+        _listModules = new List<T>();
+    }
     public void Add(T obj)
     {
         _listModules.Add(obj);

@@ -6,27 +6,24 @@ using UnityEngine;
 
 public class MyUpdater : MonoBehaviour
 {
-    private Dictionary<String, TAccessor<GenericComponent>> _dicoUpdater;
+    private Dictionary<string, TAccessor<GenericComponent>> _dicoUpdater = new Dictionary<string, TAccessor<GenericComponent>>();
 
+    public static MyUpdater Instance() { return _singleton; }
+    private static MyUpdater _singleton;
+
+    private void Awake()
+    {
+        _singleton = this;
+    }
     public void SystemUpdate(List<GenericComponent> genericComponentlist)
     {
         for (int i = 0; i < genericComponentlist.Count; i++)
         {
-            if (_dicoUpdater == null)
+            if (!_dicoUpdater.ContainsKey(genericComponentlist[i].GetType().Name))
             {
-                _dicoUpdater = new Dictionary<genericComponentlist[i].GetType().name(), TAccessor<genericComponentlist[i].GetType().name()>>;
-            }
-            
-            
-            if (_dicoUpdater[genericComponentlist[i].GetType().name()] == null)
-            {
-                _dicoUpdater[genericComponentlist[i].GetType().name()] = new TAccessor<randomList[i].GetType.name()>;
+                
+                _dicoUpdater[genericComponentlist[i].GetType().Name] = new TAccessor<genericComponentlist[i].GetType()>();
             }
         }
-       
-
-      
-      
     }
-
 }
