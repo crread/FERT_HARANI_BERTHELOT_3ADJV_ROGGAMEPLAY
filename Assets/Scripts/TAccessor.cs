@@ -1,18 +1,20 @@
 using System.Collections;
-using UnityEngine;
+using System.Collections.Generic;
 
-public class TAccessor<T>
+public class TAccessor <T>
 {
-    private static TAccessor<T> _singleton;
-    public static TAccessor<T> Instance()
+    public List<T> _listModules;
+    public TAccessor()
     {
-        if (_singleton == null)
-        {
-            _singleton = new TAccessor<T>();
-        }
-        return _singleton;
+        _listModules = new List<T>();
     }
-    public TAccessor() {}
-
-    public IEnumerable GetAllModules() => Object.FindObjectsOfType(typeof(T));
+    public void Add(T obj)
+    {
+        _listModules.Add(obj);
+    }
+    
+    public void Remove(T obj)
+    {
+        _listModules.Remove(obj);
+    }
 }
