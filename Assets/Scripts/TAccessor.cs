@@ -1,8 +1,9 @@
+using System.Collections;
 using System.Collections.Generic;
 
 public class TAccessor <T>
 {
-    private List<T> _listModules;
+    public List<T> _listModules;
     public TAccessor()
     {
         _listModules = new List<T>();

@@ -1,13 +1,9 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class MyUpdater : MonoBehaviour
 {
     private Dictionary<string, TAccessor<GenericComponent>> _dicoUpdater = new Dictionary<string, TAccessor<GenericComponent>>();
-
     public static MyUpdater Instance() { return _singleton; }
     private static MyUpdater _singleton;
 
@@ -17,13 +13,13 @@ public class MyUpdater : MonoBehaviour
     }
     public void SystemUpdate(List<GenericComponent> genericComponentlist)
     {
-        for (int i = 0; i < genericComponentlist.Count; i++)
+        foreach (var component in genericComponentlist)
         {
-            if (!_dicoUpdater.ContainsKey(genericComponentlist[i].GetType().Name))
+            if (!_dicoUpdater.ContainsKey(component.GetType().Name))
             {
-                
-                _dicoUpdater[genericComponentlist[i].GetType().Name] = new TAccessor<genericComponentlist[i].GetType()>();
+                _dicoUpdater.Add(component.GetType().Name, new TAccessor<GenericComponent>());
             }
+            _dicoUpdater[component.GetType().Name].Add(component);
         }
     }
 }
