@@ -23,10 +23,10 @@ public class GameManager : MonoBehaviour
         entityp.Init();
     }
     
-    //  IEnumerator ExampleCoroutine()
-    // {
-    //     yield return new WaitForSeconds(UnityEngine.Random.Range(1f,4f));
-    // }
+      IEnumerator ExampleCoroutine()
+     { 
+         yield return new WaitForSeconds(UnityEngine.Random.Range(20f,40f));
+     }
 
     
     private void Update()
@@ -35,19 +35,17 @@ public class GameManager : MonoBehaviour
         {
             system.SystemUpdate();
         }
-        
-        
-       
-        if (Input.GetKeyDown(KeyCode.A))
-        {
+
+        ExampleCoroutine();
+
             Entity entity = _poolmanager.GetPooledObject(ObjectType.Ennemy);
             if (entity)
             {
                 entity.Init();
             }
  
-            position = new Vector3(UnityEngine.Random.Range(-25.0F, 25.0F), 0, UnityEngine.Random.Range(4.0F, 10.0F));
+            position = new Vector3(UnityEngine.Random.Range(-80.0F, 80.0F), 0, UnityEngine.Random.Range(40.0F, 80.0F));
             entity.gameObject.transform.position = position;
-        }
+        
     }
 }
