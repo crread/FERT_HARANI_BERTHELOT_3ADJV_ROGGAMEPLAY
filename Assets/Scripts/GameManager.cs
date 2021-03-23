@@ -6,9 +6,7 @@ public class GameManager : MonoBehaviour
 {
     private PoolManager _poolmanager;
     private List<IUpdater> _listTest = new List<IUpdater>();
-    public Transform ammoDrop;
     public Vector3 position;
-    public GameObject playerp;
 
     private void Start()
     {
@@ -21,14 +19,14 @@ public class GameManager : MonoBehaviour
         Entity entity = _poolmanager.GetPooledObject(ObjectType.Ennemy);
         entity.Init();
         Entity entityp = _poolmanager.GetPooledObject(ObjectType.Player);
+        Debug.Log(entityp);
         entityp.Init();
-        entityp.gameObject.transform.position = playerp.transform.position;
     }
     
-     IEnumerator ExampleCoroutine()
-    {
-        yield return new WaitForSeconds(UnityEngine.Random.Range(1f,4f));
-    }
+    //  IEnumerator ExampleCoroutine()
+    // {
+    //     yield return new WaitForSeconds(UnityEngine.Random.Range(1f,4f));
+    // }
 
     
     private void Update()
@@ -50,9 +48,6 @@ public class GameManager : MonoBehaviour
  
             position = new Vector3(UnityEngine.Random.Range(-25.0F, 25.0F), 0, UnityEngine.Random.Range(4.0F, 10.0F));
             entity.gameObject.transform.position = position;
-
         }
-        
-        
     }
 }

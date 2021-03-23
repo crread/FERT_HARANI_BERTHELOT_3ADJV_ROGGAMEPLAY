@@ -6,6 +6,9 @@ namespace Components
     {
         //Module HMov
         public float speed = 1f;
-        public Vector3 direction = new Vector3(0, 1, 0);
+        public Vector3 forward = Vector3.forward;
+        public Vector3 back = Vector3.back;
+        public Vector3 right = Vector3.right;
+        public Vector3 left = Vector3.left;
     }
 }
