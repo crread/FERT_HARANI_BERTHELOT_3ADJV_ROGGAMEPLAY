@@ -35,6 +35,7 @@ public class PoolManager : MonoBehaviour
 
     public Entity GetPooledObject(ObjectType parObjectType)
     {
+        
         return pools[parObjectType].PullObject();
     }
 

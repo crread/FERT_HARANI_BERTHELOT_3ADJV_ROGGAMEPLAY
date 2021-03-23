@@ -10,11 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2787599775308990106}
   - component: {fileID: 4673842640501419547}
+  - component: {fileID: -269603719851031774}
   - component: {fileID: 686113968436834872}
   - component: {fileID: 4791277528326979108}
   - component: {fileID: 574453925793065573}
-  - component: {fileID: 6936258950752439938}
-  - component: {fileID: 3398479920060860657}
   m_Layer: 0
   m_Name: Ennemy
   m_TagString: Untagged
@@ -44,6 +43,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7181415491581930397}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &-269603719851031774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7181415491581930397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b821135677b64bb4aadec79370daebdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  direction: {x: 0.2, y: 0, z: -1}
 --- !u!23 &686113968436834872
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -111,31 +124,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9cc2cd7fca97bc4898d386526c13a78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6936258950752439938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7181415491581930397}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57b65a751977b5b44bd078ae860bc9de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  direction: {x: 1, y: 0, z: 0}
-  speed: 1
---- !u!114 &3398479920060860657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7181415491581930397}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b372cc94f2df5648b3f8bf9a97332c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  direction: {x: 0, y: 0, z: 1}
-  speed: 1
